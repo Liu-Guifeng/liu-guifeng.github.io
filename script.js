@@ -42,8 +42,6 @@ const sectionObserver = new IntersectionObserver(
 
 sections.forEach((section) => sectionObserver.observe(section));
 
-document.querySelector("#print-page")?.addEventListener("click", () => window.print());
-
 document.querySelector("#current-year").textContent = String(new Date().getFullYear());
 
 window.addEventListener("resize", () => {

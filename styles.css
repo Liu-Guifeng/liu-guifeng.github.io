@@ -86,15 +86,15 @@ button {
 
 .hero {
   display: grid;
-  grid-template-columns: 118px minmax(0, 1fr) 320px;
-  gap: 32px;
+  grid-template-columns: 150px minmax(0, 1fr) 330px;
+  gap: 30px;
   align-items: center;
   padding-block: 38px;
 }
 
 .portrait {
   overflow: hidden;
-  width: 118px;
+  width: 150px;
   aspect-ratio: 4 / 5;
   border: 1px solid var(--line);
   border-radius: 4px;
@@ -113,7 +113,7 @@ button {
   margin: 0;
   color: var(--navy);
   font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
-  font-size: clamp(2.5rem, 5vw, 3.6rem);
+  font-size: clamp(2.2rem, 4vw, 3rem);
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: 0.06em;
@@ -141,25 +141,6 @@ button {
   font-size: 0.94rem;
 }
 
-.hero-actions {
-  margin-top: 14px;
-}
-
-.button {
-  min-height: 36px;
-  padding: 6px 13px;
-  color: var(--navy);
-  border: 1px solid #9baab4;
-  border-radius: 4px;
-  background: white;
-  cursor: pointer;
-}
-
-.button:hover {
-  border-color: var(--navy);
-}
-
-.button:focus-visible,
 .nav-links a:focus-visible,
 .brand:focus-visible,
 .menu-toggle:focus-visible {
@@ -178,8 +159,9 @@ button {
 
 .quick-facts dl div {
   display: grid;
-  grid-template-columns: 74px minmax(0, 1fr);
+  grid-template-columns: 76px minmax(0, 1fr);
   gap: 10px;
+  align-items: start;
   padding: 5px 0;
 }
 
@@ -196,6 +178,15 @@ button {
 
 .quick-facts .nowrap {
   white-space: nowrap;
+}
+
+.workplace span {
+  display: block;
+}
+
+.quick-facts a {
+  color: var(--teal);
+  overflow-wrap: anywhere;
 }
 
 .site-nav {
@@ -307,11 +298,13 @@ button {
 }
 
 .lead {
-  max-width: 1000px;
+  max-width: none;
   margin: 0;
   color: #354651;
   font-size: 1rem;
   line-height: 1.9;
+  text-align: justify;
+  text-justify: inter-ideograph;
 }
 
 .card-grid {
@@ -357,6 +350,43 @@ button {
 
 .publication-list {
   border-top: 1px solid #bfcbd2;
+}
+
+.research-content {
+  display: grid;
+  gap: 32px;
+}
+
+.subsection-title {
+  margin: 0 0 10px;
+  color: var(--navy);
+  font-family: Georgia, "Noto Serif SC", "Songti SC", serif;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.patent-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid #bfcbd2;
+  counter-reset: patent;
+}
+
+.patent-list li {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  gap: 10px;
+  padding: 14px 0;
+  color: #354651;
+  border-bottom: 1px solid var(--line);
+  counter-increment: patent;
+}
+
+.patent-list li::before {
+  color: var(--teal);
+  font-weight: 700;
+  content: counter(patent) "、";
 }
 
 .publication-item {
@@ -531,11 +561,11 @@ button {
 
 @media (max-width: 920px) {
   .hero {
-    grid-template-columns: 108px minmax(0, 1fr);
+    grid-template-columns: 132px minmax(0, 1fr);
   }
 
   .portrait {
-    width: 108px;
+    width: 132px;
   }
 
   .quick-facts {
@@ -547,7 +577,7 @@ button {
 
   .quick-facts dl {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 14px;
   }
 
@@ -607,17 +637,17 @@ button {
 
 @media (max-width: 600px) {
   .hero {
-    grid-template-columns: 82px minmax(0, 1fr);
+    grid-template-columns: 120px minmax(0, 1fr);
     gap: 18px;
     padding-block: 26px;
   }
 
   .portrait {
-    width: 82px;
+    width: 120px;
   }
 
   .hero h1 {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .english-name {
@@ -634,11 +664,14 @@ button {
   }
 
   .quick-facts dl {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .quick-facts .nowrap {
-    font-size: 0.8rem;
+  .quick-facts dl div {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 10px;
+    padding: 5px 0;
   }
 
   .section-heading {
@@ -730,8 +763,7 @@ button {
     width: 100%;
   }
 
-  .site-nav,
-  .hero-actions {
+  .site-nav {
     display: none;
   }
 
